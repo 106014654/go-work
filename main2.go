@@ -14,14 +14,14 @@ import (
 )
 
 func main() {
-	g, ctx := errgroup.WithContext(context.Background())
+	g, ctx := errgroup.WithContext(context.Background()) //创建空白上下文
 
-	mux := http.NewServeMux()
+	mux := http.NewServeMux() //创建多个http访问
 	mux.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("hello world"))
 	})
 
-	serverOut := make(chan struct{})
+	serverOut := make(chan struct{}) //服务断联信号
 	mux.HandleFunc("/shutdown", func(w http.ResponseWriter, r *http.Request) {
 		serverOut <- struct{}{}
 	})
@@ -43,7 +43,7 @@ func main() {
 			log.Println("server will out...")
 		}
 
-		timeoutCtx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+		timeoutCtx, cancel := context.WithTimeout(context.Background(), 5 * time.Second)
 		defer cancel()
 
 		log.Println("shutting down server...")
