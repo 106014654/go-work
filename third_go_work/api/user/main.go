@@ -16,5 +16,5 @@ func main() {
 	cvs := biz.NewData(qyres)
 
 	fmt.Println("final byte data:",cvs.ConvertData())
-	
+
 }
