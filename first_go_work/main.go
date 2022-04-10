@@ -68,7 +68,7 @@ func main()  {
 	}
 
 	err = queryDB(db)
-	
+
 	if err != nil{
 		fmt.Printf("vvvvvvvvvvvv connect fail  %v\n",err)
 		os.Exit(1)
