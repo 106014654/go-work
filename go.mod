@@ -9,6 +9,7 @@ require (
 )
 
 require (
+	github.com/garyburd/redigo v1.6.3 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/subcommands v1.0.1 // indirect
 	github.com/google/wire v0.5.0 // indirect
